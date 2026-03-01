@@ -9,7 +9,7 @@ const dataDays = document.querySelector("[data-days]");
 const dataHours = document.querySelector("[data-hours]");
 const dataMins = document.querySelector("[data-minutes]");
 const dataSecs = document.querySelector("[data-seconds]");
-
+startBtn.disabled = true;
 let userSelectedData;
 const options = {
   enableTime: true,
@@ -78,8 +78,7 @@ function handleClick(event) {
         if (msResult <= 0) {
             clearInterval(intervalId);
             dateTimePicker.disabled = false;
-            const time = convertMs(msResult);
-            updateUI(time);
+            updateUI({days: 0, hours: 0, minutes: 0, seconds: 0});
             return;
         }
         else {
