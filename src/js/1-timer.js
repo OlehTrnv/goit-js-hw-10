@@ -77,6 +77,9 @@ function handleClick(event) {
         let msResult = userSelectedData - currentDT;
         if (msResult <= 0) {
             clearInterval(intervalId);
+            dateTimePicker.disabled = false;
+            const time = convertMs(msResult);
+            updateUI(time);
             return;
         }
         else {
